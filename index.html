@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="/icons/logo.png" />
+    <title>Auto Editor Batch File Creator</title>
+  </head>
+  <body class="text-center bg-gray-500">
+    <div>
+      <h2 class="mt-5 text-xl text-white font-medium">
+        ConsolAktif Auto-Editor Batch Script Kodu
+      </h2>
+      <div class="grid p-10 justify-center">
+        <div>
+          <label
+            for="message"
+            class="block mb-2 text-sm font-medium text-gray-300"
+            >Auto Editor Batch Script</label
+          >
+          <div
+            class="bg-gray-700 flex justify-between p-3 border-5 border-gray-500"
+          >
+            <a href="https://auto-editor.com/" target="_blank">
+              <img
+                src="icons/auto-editör.svg"
+                class="ml-2 cursor-pointer hover:scale-105 transition-all"
+              />
+            </a>
+            <div class="ml-36">
+              <button class="w-12 mr-1 opacity-75 hover:opacity-100">
+                <a href="https://www.youtube.com/@ConsolAktif" target="_blank">
+                  <img src="icons/youtube-logo.png" />
+                </a>
+              </button>
+              <button onclick="openHelp()">
+                <img
+                  src="icons/help.png"
+                  class="w-10 mr-2 cursor-pointer hover:scale-110 transition-all"
+                />
+              </button>
+              <button onclick="copyText()">
+                <img
+                  src="icons/copy-icon.png"
+                  class="w-9 mr-2 cursor-pointer hover:scale-110 transition-all"
+                />
+              </button>
+            </div>
+          </div>
+
+          <textarea
+            disabled
+            id="message"
+            rows="4"
+            class="block p-2.5 w-full h-96 text-sm text-white bg-gray-600 rounded-lg border-4 border-gray-800 placeholder-gray-300"
+            placeholder="Auto Editor code..."
+          ></textarea>
+        </div>
+      </div>
+
+      <div id="codeSelections scale-105">
+        <span
+          onclick="onlyFrameMargin()"
+          class="text-xs font-medium me-2 px-2.5 py-0.5 rounded bg-green-900 text-green-300 cursor-pointer"
+          >Frame Margin
+        </span>
+        <span
+          onclick="onlyMargin()"
+          class="text-xs font-medium me-2 px-2.5 py-0.5 rounded bg-yellow-900 text-yellow-300 cursor-pointer"
+          >Margin</span
+        >
+        <span
+          onclick="baseCode()"
+          class="text-xs font-medium me-2 px-2.5 py-0.5 rounded bg-purple-900 text-purple-300 cursor-pointer"
+          >Ana Kod</span
+        >
+      </div>
+      <br />
+
+      <button
+        type="button"
+        onclick="downloadFile()"
+        class="text-white font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-blue-800"
+      >
+        .txt
+      </button>
+      <button
+        type="button"
+        onclick="downloadFileBat()"
+        class="text-white font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-blue-800"
+      >
+        .bat
+      </button>
+    </div>
+
+    <div
+      id="mydiv"
+      class="fixed bg-blue-500 rounded text-white w-1/2 top-1/4 left-1/4 hidden"
+    >
+      <div id="mydivheader" class="p-2 flex justify-between">
+        <div>
+          <span
+            class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300"
+          ></span>
+          <span class="font-medium">Consolaktif yardım videosu</span>
+        </div>
+        <span
+          class="mr-3 font-medium hover:text-red-600 cursor-pointer"
+          onclick="closeVid()"
+          >x</span
+        >
+      </div>
+      <video class="rounded cursor-pointer" autoplay muted controls>
+        <source src="video/help.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
